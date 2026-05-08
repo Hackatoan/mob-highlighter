@@ -1,0 +1,22 @@
+{
+	"schemaVersion": 1,
+	"id": "mob_highlighter",
+	"version": "${version}",
+	"name": "Mob Highlighter",
+	"description": "Highlight a selected mob type so you can see all nearby mobs of that type.",
+	"authors": [
+		"hackatoa"
+	],
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.hackatoa.mobhighlighter.client.MobHighlighterClient"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.2",
+		"minecraft": "~26.1.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
