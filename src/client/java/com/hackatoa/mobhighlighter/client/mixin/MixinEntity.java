@@ -17,8 +17,8 @@ import com.hackatoa.mobhighlighter.client.MobHighlightManager;
 @Mixin(Entity.class)
 public abstract class MixinEntity {
 
-    @Inject(method = "isGlowing", at = @At("HEAD"), cancellable = true)
-    private void onIsGlowing(CallbackInfoReturnable<Boolean> cir) {
+    @Inject(method = "isCurrentlyGlowing", at = @At("HEAD"), cancellable = true)
+    private void onIsCurrentlyGlowing(CallbackInfoReturnable<Boolean> cir) {
         Entity self = (Entity) (Object) this;
         if (!MobHighlightManager.INSTANCE.isSelectedType(self.getType())) return;
         Minecraft mc = Minecraft.getInstance();
