@@ -2,7 +2,7 @@
 
 A client-side Fabric mod for Minecraft 26.1.2 that highlights a selected mob type using the vanilla glow outline, so you can spot all nearby mobs of that type at a glance — even through walls.
 
-![Mob Highlighter preview](docs/preview.png)
+![Mob Highlighter preview](preview.png)
 <!-- Replace docs/preview.png with a screenshot of the glow effect in action -->
 
 ---
