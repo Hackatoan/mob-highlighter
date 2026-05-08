@@ -57,3 +57,11 @@ cd mob-highlighter
 ```
 
 The output JAR will be at `build/libs/mob-highlighter-1.0.0.jar`.
+
+---
+
+## Support
+
+If you enjoy the mod, consider buying me a coffee!
+
+[![Buy Me a Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/hackatoa)
