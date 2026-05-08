@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.hackatoa.mobhighlighter.client.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "MixinEntity"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
