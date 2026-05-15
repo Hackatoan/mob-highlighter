@@ -1,32 +1,26 @@
+[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/hackatoa)
+
 # Mob Highlighter
 
-A client-side Fabric mod for Minecraft 26.1.2 that highlights a selected mob type using the vanilla glow outline, so you can spot all nearby mobs of that type at a glance — even through walls.
-
-![Mob Highlighter preview](preview.png)
-<!-- Replace docs/preview.png with a screenshot of the glow effect in action -->
-
----
+A client-side Fabric mod for Minecraft 26.1.2 that highlights a selected mob type using the vanilla glow outline — spot all nearby mobs of that type at a glance, even through walls.
 
 ## Features
 
-- Press **H** while looking at any mob to start tracking that mob type
-- All mobs of that type within **64 blocks** glow with the vanilla outline effect (same as the Glowing status effect)
-- Visible through walls and terrain
-- Compatible with Iris shaders
+- Press **H** while looking at a mob to start tracking that mob type
+- All mobs of that type within 64 blocks glow with the vanilla outline effect
+- Visible through walls and terrain; compatible with Iris shaders
 - HUD counter shows the tracked mob name and nearby count
 - Press **H** again (or while not looking at a mob) to clear the highlight
-
----
 
 ## Installation
 
 1. Install [Fabric Loader](https://fabricmc.net/use/) for Minecraft 26.1.2
-2. Install [Fabric API](https://modrinth.com/mod/fabric-api) 0.148.0+26.1.2 or later
-3. Download `mob-highlighter-1.0.0.jar` from the [Releases](https://github.com/Hackatoan/mob-highlighter/releases) page
-4. Drop the JAR into your `mods/` folder
-5. Launch Minecraft
+2. Install [Fabric API](https://modrinth.com/mod/fabric-api) 0.148.0+26.1.2+
+3. Download `mob-highlighter-1.0.0.jar` from [Releases](../../releases/latest)
+4. Drop the JAR into your `mods/` folder and launch Minecraft
 
 **Requirements:**
+
 | Dependency | Version |
 |---|---|
 | Minecraft | 26.1.2 |
@@ -34,34 +28,25 @@ A client-side Fabric mod for Minecraft 26.1.2 that highlights a selected mob typ
 | Fabric API | 0.148.0+26.1.2+ |
 | Java | 25+ |
 
----
-
 ## Usage
 
 | Action | Result |
 |---|---|
-| Look at a mob + press **H** | Track that mob type — all nearby mobs glow |
-| Press **H** again on the same mob type | Clear the highlight |
+| Look at mob + press **H** | Track that mob type — all nearby glow |
+| Press **H** on same type | Clear the highlight |
 | Press **H** while looking at nothing | Clear the highlight |
 
-The keybind can be changed in **Options → Controls → Mob Highlighter**.
+Keybind configurable in **Options → Controls → Mob Highlighter**.
 
----
-
-## Building from Source
+## Build from source
 
 ```bash
-git clone https://github.com/Hackatoan/mob-highlighter.git
+git clone https://github.com/Hackatoan/mob-highlighter
 cd mob-highlighter
 ./gradlew build
+# output: build/libs/mob-highlighter-1.0.0.jar
 ```
-
-The output JAR will be at `build/libs/mob-highlighter-1.0.0.jar`.
 
 ---
 
-## Support
-
-If you enjoy the mod, consider buying me a coffee!
-
-[![Buy Me a Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/hackatoa)
+[hackatoa.com](https://hackatoa.com) · [GitHub](https://github.com/Hackatoan) · [Buy Me A Coffee](https://buymeacoffee.com/hackatoa)
