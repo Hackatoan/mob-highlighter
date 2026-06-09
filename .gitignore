@@ -1,6 +1,7 @@
 # Gradle
 .gradle/
 build/
+out/
 
 # IDE
 .idea/
@@ -13,3 +14,10 @@ build/
 
 # Fabric Loom cache (downloaded at build time)
 run/
+
+# Local env
+local.properties
+*.env
+
+# Test outputs
+test-results/
