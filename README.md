@@ -1,52 +1,40 @@
-[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/hackatoa)
-
 # Mob Highlighter
 
-A client-side Fabric mod for Minecraft 26.1.2 that highlights a selected mob type using the vanilla glow outline — spot all nearby mobs of that type at a glance, even through walls.
+A client-side Fabric mod for Minecraft 26.1.2 that highlights nearby mobs of a chosen type with a see-through-walls glow box.
+
+☕ **Support:** [Buy Me a Coffee](https://buymeacoffee.com/hackatoa)
+
+## Overview
+
+Select a mob type and Mob Highlighter draws a glow box around every nearby mob of that type, visible through walls — handy for finding specific mobs.
 
 ## Features
 
-- Press **H** while looking at a mob to start tracking that mob type
-- All mobs of that type within 64 blocks glow with the vanilla outline effect
-- Visible through walls and terrain; compatible with Iris shaders
-- HUD counter shows the tracked mob name and nearby count
-- Press **H** again (or while not looking at a mob) to clear the highlight
+- See-through-walls glow-box highlight
+- Choose which mob type to highlight
+- Client-side only
 
-## Installation
+## Tech Stack
 
-1. Install [Fabric Loader](https://fabricmc.net/use/) for Minecraft 26.1.2
-2. Install [Fabric API](https://modrinth.com/mod/fabric-api) 0.148.0+26.1.2+
-3. Download `mob-highlighter-1.0.0.jar` from [Releases](../../releases/latest)
-4. Drop the JAR into your `mods/` folder and launch Minecraft
+Java · Fabric · Gradle (Minecraft 26.1.2)
 
-**Requirements:**
-
-| Dependency | Version |
-|---|---|
-| Minecraft | 26.1.2 |
-| Fabric Loader | 0.19.2+ |
-| Fabric API | 0.148.0+26.1.2+ |
-| Java | 25+ |
-
-## Usage
-
-| Action | Result |
-|---|---|
-| Look at mob + press **H** | Track that mob type — all nearby glow |
-| Press **H** on same type | Clear the highlight |
-| Press **H** while looking at nothing | Clear the highlight |
-
-Keybind configurable in **Options → Controls → Mob Highlighter**.
-
-## Build from source
+## Build
 
 ```bash
-git clone https://github.com/Hackatoan/mob-highlighter
-cd mob-highlighter
 ./gradlew build
-# output: build/libs/mob-highlighter-1.0.0.jar
+# jar is written to build/libs/
 ```
+
+## Install
+
+Requires Fabric Loader + Fabric API. Drop the built jar into your `mods/` folder.
+
+## Support
+
+If this project is useful to you, consider supporting development:
+
+☕ **[Buy Me a Coffee](https://buymeacoffee.com/hackatoa)**
 
 ---
 
-[hackatoa.com](https://hackatoa.com) · [GitHub](https://github.com/Hackatoan) · [Buy Me A Coffee](https://buymeacoffee.com/hackatoa)
+Part of the **[Hackatoa](https://hackatoa.com)** ecosystem — self-hosted apps, browser games, and bots. · [All repositories »](https://github.com/Hackatoan)
