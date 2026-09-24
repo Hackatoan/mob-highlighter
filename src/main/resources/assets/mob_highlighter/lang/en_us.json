@@ -2,5 +2,6 @@
 	"key.mob_highlighter.select": "Select Mob to Highlight",
 	"key.categories.mob_highlighter.category": "Mob Highlighter",
 	"msg.mob_highlighter.tracking": "Tracking: %s",
-	"msg.mob_highlighter.cleared": "Highlight cleared"
+	"msg.mob_highlighter.cleared": "Highlight cleared",
+	"msg.mob_highlighter.no_target": "Look at a mob to select it"
 }

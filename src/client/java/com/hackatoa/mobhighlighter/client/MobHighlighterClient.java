@@ -72,6 +72,10 @@ public class MobHighlighterClient implements ClientModInitializer {
                     client.player.sendSystemMessage(
                             Component.translatable("msg.mob_highlighter.cleared")
                     );
+                } else {
+                    client.player.sendSystemMessage(
+                            Component.translatable("msg.mob_highlighter.no_target")
+                    );
                 }
             }
         }
