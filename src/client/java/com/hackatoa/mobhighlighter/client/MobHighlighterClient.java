@@ -46,6 +46,11 @@ public class MobHighlighterClient implements ClientModInitializer {
         );
     }
 
+    // Nearby-entity count for the HUD, refreshed once per game tick (20/s) instead of
+    // every render frame, since frame rates can run well above tick rate and the HUD
+    // text doesn't need sub-tick precision.
+    private int cachedNearbyCount = 0;
+
     private void onTick(Minecraft client) {
         if (client.player == null) return;
 
@@ -75,6 +80,26 @@ public class MobHighlighterClient implements ClientModInitializer {
                 }
             }
         }
+
+        updateNearbyCount(client);
+    }
+
+    private void updateNearbyCount(Minecraft client) {
+        EntityType<?> selected = MobHighlightManager.INSTANCE.getSelectedType();
+        if (selected == null || client.level == null) {
+            cachedNearbyCount = 0;
+            return;
+        }
+
+        int count = 0;
+        double rangeSq = (double) MobHighlightManager.RANGE * MobHighlightManager.RANGE;
+        for (Entity entity : client.level.entitiesForRendering()) {
+            if (entity.isAlive() && entity.getType() == selected
+                    && entity.distanceToSqr(client.player) <= rangeSq) {
+                count++;
+            }
+        }
+        cachedNearbyCount = count;
     }
 
     private void renderHud(GuiGraphicsExtractor graphics, DeltaTracker deltaTracker) {
@@ -84,20 +109,8 @@ public class MobHighlighterClient implements ClientModInitializer {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.options.hideGui) return;
 
-        // Count nearby entities of selected type
-        int count = 0;
-        if (mc.level != null) {
-            double rangeSq = (double) MobHighlightManager.RANGE * MobHighlightManager.RANGE;
-            for (Entity entity : mc.level.entitiesForRendering()) {
-                if (entity.isAlive() && entity.getType() == selected
-                        && entity.distanceToSqr(mc.player) <= rangeSq) {
-                    count++;
-                }
-            }
-        }
-
         String name = Component.translatable(selected.getDescriptionId()).getString();
-        String text = name + " ×" + count + "  (within " + MobHighlightManager.RANGE + "m)";
+        String text = name + " ×" + cachedNearbyCount + "  (within " + MobHighlightManager.RANGE + "m)";
         int textWidth = mc.font.width(text);
         int x = (graphics.guiWidth() - textWidth) / 2;
         int y = graphics.guiHeight() - 55;
