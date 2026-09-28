@@ -1,6 +1,7 @@
 package com.hackatoa.mobhighlighter.client;
 
 import com.mojang.blaze3d.platform.InputConstants;
+import org.jspecify.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
 
 import net.minecraft.client.DeltaTracker;
@@ -50,6 +51,14 @@ public class MobHighlighterClient implements ClientModInitializer {
     // every render frame, since frame rates can run well above tick rate and the HUD
     // text doesn't need sub-tick precision.
     private int cachedNearbyCount = 0;
+
+    // Localized display name for the selected entity type, cached so renderHud (called
+    // every frame) doesn't re-run a Component.translatable(...).getString() lookup on
+    // every single frame while tracking is active. Only recomputed when the selection
+    // actually changes.
+    @Nullable
+    private EntityType<?> cachedNameType = null;
+    private String cachedName = "";
 
     private void onTick(Minecraft client) {
         if (client.player == null) return;
@@ -113,8 +122,11 @@ public class MobHighlighterClient implements ClientModInitializer {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.options.hideGui) return;
 
-        String name = Component.translatable(selected.getDescriptionId()).getString();
-        String text = name + " ×" + cachedNearbyCount + "  (within " + MobHighlightManager.RANGE + "m)";
+        if (selected != cachedNameType) {
+            cachedNameType = selected;
+            cachedName = Component.translatable(selected.getDescriptionId()).getString();
+        }
+        String text = cachedName + " ×" + cachedNearbyCount + "  (within " + MobHighlightManager.RANGE + "m)";
         int textWidth = mc.font.width(text);
         int x = (graphics.guiWidth() - textWidth) / 2;
         int y = graphics.guiHeight() - 55;
