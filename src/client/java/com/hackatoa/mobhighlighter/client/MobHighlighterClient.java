@@ -119,7 +119,11 @@ public class MobHighlighterClient implements ClientModInitializer {
         int x = (graphics.guiWidth() - textWidth) / 2;
         int y = graphics.guiHeight() - 55;
 
+        // Dim the count when nothing is currently in range so a "0" reads at a glance as
+        // "none nearby right now" rather than looking identical to an active, populated count.
+        int color = cachedNearbyCount > 0 ? CommonColors.WHITE : CommonColors.LIGHT_GRAY;
+
         graphics.fill(x - 4, y - 3, x + textWidth + 4, y + 11, 0x88000000);
-        graphics.text(mc.font, text, x, y, CommonColors.WHITE);
+        graphics.text(mc.font, text, x, y, color);
     }
 }
