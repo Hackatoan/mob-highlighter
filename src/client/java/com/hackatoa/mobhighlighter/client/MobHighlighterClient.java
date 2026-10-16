@@ -120,7 +120,7 @@ public class MobHighlighterClient implements ClientModInitializer {
         if (selected == null) return;
 
         Minecraft mc = Minecraft.getInstance();
-        if (mc.player == null || mc.options.hideGui) return;
+        if (mc == null || mc.player == null || mc.options.hideGui) return;
 
         if (selected != cachedNameType) {
             cachedNameType = selected;
