@@ -22,7 +22,7 @@ public abstract class MixinEntity {
         Entity self = (Entity) (Object) this;
         if (!MobHighlightManager.INSTANCE.isSelectedType(self.getType())) return;
         Minecraft mc = Minecraft.getInstance();
-        if (mc.player == null) return;
+        if (mc == null || mc.player == null) return;
         double rangeSq = (double) MobHighlightManager.RANGE * MobHighlightManager.RANGE;
         if (self.distanceToSqr(mc.player) > rangeSq) return;
         cir.setReturnValue(true);
