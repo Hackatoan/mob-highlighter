@@ -1,6 +1,6 @@
 # Mob Highlighter
 
-A client-side Fabric mod for Minecraft 26.1.2 that highlights nearby mobs of a chosen type with a see-through-walls glow box.
+A client-side Fabric mod for Minecraft 26.3 that highlights nearby mobs of a chosen type with a see-through-walls glow box.
 
 ☕ **Support:** [Buy Me a Coffee](https://buymeacoffee.com/hackatoa)
 
@@ -16,7 +16,7 @@ Select a mob type and Mob Highlighter draws a glow box around every nearby mob o
 
 ## Tech Stack
 
-Java · Fabric · Gradle (Minecraft 26.1.2)
+Java · Fabric · Gradle (Minecraft 26.3)
 
 ## Build
 

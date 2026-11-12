@@ -2,7 +2,6 @@ package com.hackatoa.mobhighlighter.client;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import org.jspecify.annotations.Nullable;
-import org.lwjgl.glfw.GLFW;
 
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.KeyMapping;
@@ -31,8 +30,8 @@ public class MobHighlighterClient implements ClientModInitializer {
     public static final KeyMapping SELECT_KEY = KeyMappingHelper.registerKeyMapping(
             new KeyMapping(
                     "key.mob_highlighter.select",
-                    InputConstants.Type.KEYSYM,
-                    GLFW.GLFW_KEY_H,
+                    InputConstants.Type.KEYBOARD,
+                    InputConstants.KEY_H,
                     CATEGORY
             )
     );
@@ -120,7 +119,7 @@ public class MobHighlighterClient implements ClientModInitializer {
         if (selected == null) return;
 
         Minecraft mc = Minecraft.getInstance();
-        if (mc == null || mc.player == null || mc.options.hideGui) return;
+        if (mc == null || mc.player == null || mc.gui.hud.isHidden()) return;
 
         if (selected != cachedNameType) {
             cachedNameType = selected;
