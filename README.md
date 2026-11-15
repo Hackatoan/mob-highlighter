@@ -12,6 +12,7 @@ Select a mob type and Mob Highlighter draws a glow box around every nearby mob o
 
 - See-through-walls glow-box highlight
 - Choose which mob type to highlight
+- Optional "Toggle Tracker HUD" keybind (unbound by default — set it in Controls) to hide the count overlay while keeping the glow
 - Client-side only
 
 ## Tech Stack
