@@ -36,6 +36,19 @@ public class MobHighlighterClient implements ClientModInitializer {
             )
     );
 
+    // Opt-in: unbound by default so existing behaviour is unchanged. Players can bind it
+    // in Controls to hide/show the tracker HUD while keeping the glow highlight active.
+    public static final KeyMapping TOGGLE_HUD_KEY = KeyMappingHelper.registerKeyMapping(
+            new KeyMapping(
+                    "key.mob_highlighter.toggle_hud",
+                    InputConstants.Type.KEYBOARD,
+                    InputConstants.UNKNOWN.getValue(),
+                    CATEGORY
+            )
+    );
+
+    private boolean hudVisible = true;
+
     @Override
     public void onInitializeClient() {
         ClientTickEvents.END_CLIENT_TICK.register(this::onTick);
@@ -93,6 +106,13 @@ public class MobHighlighterClient implements ClientModInitializer {
             }
         }
 
+        while (TOGGLE_HUD_KEY.consumeClick()) {
+            hudVisible = !hudVisible;
+            client.player.sendSystemMessage(Component.translatable(hudVisible
+                    ? "msg.mob_highlighter.hud_shown"
+                    : "msg.mob_highlighter.hud_hidden"));
+        }
+
         updateNearbyCount(client);
     }
 
@@ -116,7 +136,7 @@ public class MobHighlighterClient implements ClientModInitializer {
 
     private void renderHud(GuiGraphicsExtractor graphics, DeltaTracker deltaTracker) {
         EntityType<?> selected = MobHighlightManager.INSTANCE.getSelectedType();
-        if (selected == null) return;
+        if (selected == null || !hudVisible) return;
 
         Minecraft mc = Minecraft.getInstance();
         if (mc == null || mc.player == null || mc.gui.hud.isHidden()) return;
