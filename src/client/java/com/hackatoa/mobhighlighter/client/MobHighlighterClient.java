@@ -118,7 +118,7 @@ public class MobHighlighterClient implements ClientModInitializer {
 
     private void updateNearbyCount(Minecraft client) {
         EntityType<?> selected = MobHighlightManager.INSTANCE.getSelectedType();
-        if (selected == null || client.level == null) {
+        if (selected == null || client.level == null || client.player == null) {
             cachedNearbyCount = 0;
             return;
         }
